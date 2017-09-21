@@ -1,0 +1,78 @@
+---
+title: "Exploring Diamonds"
+author: "Ryan Nguyen"
+date: "9/21/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+##Reading my diamonds dataset
+
+```{r}
+library (readxl)
+mydiamonds=read_excel("diamonds.xlsx") 
+```
+
+```{r}
+dim(mydiamonds)
+```
+
+```{r}
+mydiamonds[50000,3]
+```
+
+## Now I will see the first six rows using a head command
+
+```{r}
+head (mydiamonds)
+```
+
+##Now I will see the last six rows using a tail command
+
+```{r}
+tail (mydiamonds)
+```
+
+```{r}
+str(mydiamonds)
+```
+
+```{r}
+summary (mydiamonds)
+```
+
+## Making the cut variable a factor variable
+
+```{r}
+mydiamonds$cut=as.factor(mydiamonds$cut)
+summary(mydiamonds$cut)
+```
+
+
+#For color
+
+
+```{r}
+mydiamonds$color=as.factor(mydiamonds$color)
+summary(mydiamonds$color)
+```
+
+## Making  a color cut table
+
+```{r}
+?table
+```
+
+
+#Table Creation
+
+```{r}
+table(mydiamonds$cut, mydiamonds$color)
+```
+
+
